@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "travel";
+}
+
+<h1>travel</h1>
+
+<div class="d-flex justify-content-between flex-wrap mt-1" id="key" >
+<div class="card mb-3" style="width: 18rem;">
+  <div class="card-body" style="color:aliceblue">
+    <h5 class="card-title">NAME</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+    <div class="card mb-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">NAME</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+<script src= "~/js/travel.js" ></script>
+<script>
+    const trl = document.querySelector("#key");
+    console.log(DATAS);
+        let data = DATAS.map((info,index,array)=>{
+            const { InfoId, TYWebsite, Name, Toldescribe, Add, Zipcode, Opentime, Px, Py, Website, Parkinginfo, Ticketinfo, Remarks, Tel, Fax, Changetime} = info;
+            return (
+             `<div class="card mb-3" style="width: 18rem;">
+             <div class="card-body">
+             <h5 class="card-title >${Name}</h5>
+             <p class="card-text">${Toldescribe}</p>
+             <p class="card-text">${Add}</p>
+             <p class="card-text">${Opentime}</p>
+             <p class="card-text">${Tel}</p>
+             <a href="${Website}" class="btn btn-primary">拜訪網址</a>
+             </div>
+            </div>`)
+        })
+    trl.innerHTML = data.join("");
+</script>
+}
